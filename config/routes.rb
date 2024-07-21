@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root to: 'zip_codes#search'
+  root to: 'zip_codes#result'
 end
