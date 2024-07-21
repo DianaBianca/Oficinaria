@@ -60,6 +60,7 @@ group :development, :test do
   gem 'vcr'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'rubocop', require: false
 end
 
 group :development do
