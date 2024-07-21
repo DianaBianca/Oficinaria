@@ -57,10 +57,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
   gem 'webmock'
-  gem 'vcr'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rubocop', require: false
+  gem 'rubycritic'
 end
 
 group :development do

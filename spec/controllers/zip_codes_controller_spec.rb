@@ -67,12 +67,11 @@ RSpec.describe ZipCodesController, type: :controller do
       before do
         stub_request(:get, "https://cep.awesomeapi.com.br/json/#{zip_code}")
           .to_return(status: 200, body: valid_response.to_json)
+
+        get :search, params: { cep: zip_code }, format: :turbo_stream
       end
 
-      subject { get :search, params: { cep: zip_code }, format: :turbo_stream }
-
-      it 'fetches address info and assigns @address_info' do
-        subject
+      it 'assigns @address_info' do
         expect(assigns(:address_info)).to eq(valid_response)
       end
 
@@ -85,15 +84,12 @@ RSpec.describe ZipCodesController, type: :controller do
         before do
           stub_request(:get, "https://cep.awesomeapi.com.br/json/#{zip_code_incorrect}")
           .to_return(status: 400, body: invalid_response.to_json)
+
+          get :search, params: { cep: zip_code_incorrect }, format: :turbo_stream
         end
 
-        subject { get :search, params: { cep: zip_code_incorrect }, format: :turbo_stream }
-
-        it 'fetches address info and assigns @address_info' do
-          subject
-          expect(assigns(:address_info)).to include(
-           "message": "CEP invalido, tente: 00000000"
-          )
+        it 'assigns @address_info' do
+          expect(assigns(:address_info)).to include("message": "CEP invalido, tente: 00000000")
         end
 
         include_examples 'renders the search template'
@@ -104,15 +100,12 @@ RSpec.describe ZipCodesController, type: :controller do
         before do
           stub_request(:get, "https://cep.awesomeapi.com.br/json/#{zip_code_not_found}")
           .to_return(status: 404, body: not_found_response.to_json)
+
+          get :search, params: { cep: zip_code_not_found }, format: :turbo_stream
         end
 
-        subject { get :search, params: { cep: zip_code_not_found }, format: :turbo_stream }
-
-        it 'fetches address info and assigns @address_info' do
-          subject
-          expect(assigns(:address_info)).to include(
-           "message": "O CEP 12513416 nao foi encontrado"
-          )
+        it 'assigns @address_info' do
+          expect(assigns(:address_info)).to include("message": "O CEP 12513416 nao foi encontrado")
         end
 
         include_examples 'renders the search template'
