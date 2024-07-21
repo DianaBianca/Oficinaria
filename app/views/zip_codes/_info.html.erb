@@ -1,0 +1,11 @@
+<!-- app/views/zip_codes/_info.html.erb -->
+<% if @address_info[:status] == 200 %>
+  <p>CEP: <%= @address_info[:cep] %></p>
+  <p>Logradouro: <%= @address_info[:address] %></p>
+  <p>Bairro: <%= @address_info[:district] %></p>
+  <p>Cidade: <%= @address_info[:city] %></p>
+  <p>Estado: <%= @address_info[:state] %></p>
+  <p>DDD: <%= @address_info[:ddd] %></p>
+<% else %>
+   <%= @address_info[:message] %>
+<% end %>
