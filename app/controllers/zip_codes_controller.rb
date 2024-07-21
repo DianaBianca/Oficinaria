@@ -1,14 +1,20 @@
 class ZipCodesController < ApplicationController
-  def search;end
+  def index
+    @address_info = nil
+  end
 
-  def result
-    binding.pry
-    cep = 12513415# params[:cep]
+  def search
+    zip_code = params[:cep]
 
-    response = Faraday.get("https://cep.awesomeapi.com.br/json/#{cep}")
+    response = Faraday.get("https://cep.awesomeapi.com.br/json/#{zip_code}")
 
-    json = JSON.parse(response.body, symbolize_names: true)
-    
+    @address_info = JSON.parse(response.body, symbolize_names: true)
+    @address_info[:status] = response.status
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { render :index }
+    end
   end
 
 end
