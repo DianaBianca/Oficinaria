@@ -1,0 +1,10 @@
+<%= form_tag(search_path, method: :get, data: { turbo_frame: "zip_code_info_frame" }) do %>
+  <%= text_field_tag :cep, params[:cep], autocomplete: 'off', placeholder: "EX: 12513415" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @address_info %>
+  <div id="zip_code_info_frame">
+    <%= render partial: "info" %>
+  </div>
+<% end %>
