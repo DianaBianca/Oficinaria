@@ -1,10 +1,27 @@
-<%= form_tag(search_path, method: :get, data: { turbo_frame: "zip_code_info_frame" }) do %>
-  <%= text_field_tag :cep, params[:cep], autocomplete: 'off', placeholder: "EX: 12513415" %>
-  <%= submit_tag "Search" %>
-<% end %>
+<%= render 'shared/gradient' %>
 
-<% if @address_info %>
-  <div id="zip_code_info_frame">
-    <%= render partial: "info" %>
+<div class="relative isolate overflow-hidden z-20 px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl pb-0">
+      Busque CEPs com facilidade.<br>Encontre o que precisa em segundos.
+    </h2>
+    <div class="mt-16 w-full sm:w-3/4 lg:w-1/2 mx-auto">
+      <div class="flex items-center space-x-2 pt-12 pb-8">
+        <%= form_tag(search_path, method: :get, data: { turbo_frame: "zip_code_info_frame" }, class: "flex w-full") do %>
+          <%= text_field_tag :cep, params[:cep], required: true, placeholder: "Digite seu CEP", class: "shadow-[0_0_20px_rgba(255,255,255,0.5)] flex-grow rounded-full border-0 px-4 py-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <button type="submit" class="flex items-center justify-center p-3 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            <%= heroicon "magnifying-glass", variant: "solid", options: { class: "h-6 w-6 text-white" } %>
+          </button>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+
+  <% if @address_info %>
+    <div id="zip_code_info_frame">
+      <%= render partial: "info" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render partial: 'zip_code_bonus' %>
