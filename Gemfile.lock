@@ -155,6 +155,9 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
+    heroicons (2.0.0)
+      nokogiri
+      railties (>= 5.2)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -382,6 +385,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faraday (~> 2.7, >= 2.7.11)
+  heroicons
   importmap-rails
   jbuilder
   pry (~> 0.14.2)
