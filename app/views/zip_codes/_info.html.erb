@@ -2,13 +2,13 @@
   <% if @address_info[:status] == 200 %>
     <div class="relative isolate flex flex-col items-center justify-center w-full">
       <div class="w-95">
-        <div class="flex flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+        <div class="flex flex-col gap-16 bg-gray-900 px-6 py-16  sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
           <div>
             <p class="text-3xl font-bold tracking-tight sm:text-4xl">
               <%= @address_info[:city] %> - <%= @address_info[:state] %>
             </p>
-            <p><%= @address_info[:address] %></p>
-            <p>
+            <p class="text-lg"><%= @address_info[:address] %></p>
+            <p class="text-lg">
               <%= @address_info[:district] %>, <%= @address_info[:city] %> - <%= @address_info[:state] %>, <%= @address_info[:cep] %>
             </p>
             <div class="flex items-center space-x-2">
