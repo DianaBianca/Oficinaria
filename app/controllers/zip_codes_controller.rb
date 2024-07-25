@@ -3,11 +3,11 @@ class ZipCodesController < ApplicationController
 
   def index
     @address_info = nil
-    @most_searched_zip_code = most_searched_zip_codes
+    @most_searched_zip_codes = most_searched_zip_codes
   end
 
   def search
-    @most_searched_zip_code = most_searched_zip_codes
+    @most_searched_zip_codes = most_searched_zip_codes
     respond_to do |format|
       format.turbo_stream
       format.html { render :index }
