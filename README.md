@@ -111,3 +111,4 @@ Esses comandos ajudarão a garantir a qualidade e a manutenção do código ao l
 ## Atualizações Futuras
 
 * Adicionar a funcionalidade de CEPs mais buscados por cidade/estado.
+* Adicionar a funcionalidade de quantidade de CEPs por estado
