@@ -1,0 +1,22 @@
+<div class="relative bg-white">
+  <div class="mx-auto flex max-w-7xl">
+    <div class="flex-1 px-6 pb-24 pt-16 sm:pb-32 sm:pt-20 lg:px-8 lg:pt-32 text-left">
+      <div class="max-w-2xl lg:max-w-lg">
+        <h2 class="text-base font-semibold leading-8 text-indigo-600">CEPs mais buscados</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Veja a nossa lista de CEPs mais buscados na plataforma!</p>
+      </div>
+    </div>
+    <div class="flex-none max-w-xl mt-16">
+      <dl class="grid gap-8 sm:grid-cols-2 xl:mt-16">
+        <% most_searched_zip_codes.each do |zip_code|%>
+        <div class="flex flex-col gap-y-3 border-l border-gray-900/10 pl-6">
+          <dt class="text-sm leading-6 text-gray-900"><%= zip_code[:zip_code] %></dt>
+          <dd class="order-first text-3xl font-semibold tracking-tight text-gray-600">
+            <%= zip_code[:district] %>, <%= zip_code[:city] %>
+          </dd>
+        </div>
+        <%end%>
+      </dl>
+    </div>
+  </div>
+</div>
