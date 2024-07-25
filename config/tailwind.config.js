@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors:{
+        white: '#e2e8f0',
+        blue: '#0c4a6e',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },

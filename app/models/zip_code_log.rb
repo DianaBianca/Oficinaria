@@ -1,0 +1,2 @@
+class ZipCodeLog < ApplicationRecord
+end
