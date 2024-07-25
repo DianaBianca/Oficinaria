@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_240_725_184_655) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_25_184655) do
   create_table "zip_code_logs", force: :cascade do |t|
     t.string "zip_code"
     t.string "state"
@@ -20,4 +20,5 @@ ActiveRecord::Schema[7.0].define(version: 20_240_725_184_655) do
     t.string "district"
     t.string "city"
   end
+
 end
