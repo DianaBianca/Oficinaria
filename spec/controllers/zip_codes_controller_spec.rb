@@ -24,7 +24,7 @@ RSpec.describe ZipCodesController, type: :controller do
       expect(response).to render_template(:index)
     end
 
-    it 'assigns @most_searched_zip_code with the top 4 most searched zip codes' do
+    it 'assigns @most_searched_zip_codes with the top 4 most searched zip codes' do
       zip_code_logs = [
         { zip_code: '01001-000', state: 'SP', city: 'São Paulo', district: 'Centro', search_count: 15 },
         { zip_code: '01002-000', state: 'SP', city: 'São Paulo', district: 'Liberdade', search_count: 22 },
@@ -39,8 +39,8 @@ RSpec.describe ZipCodesController, type: :controller do
 
       get :index, format: :html
 
-      expect(assigns(:most_searched_zip_code).size).to eq(4)
-      expect(assigns(:most_searched_zip_code).pluck(:search_count)).to match_array([30, 25, 22, 15])
+      expect(assigns(:most_searched_zip_codes).size).to eq(4)
+      expect(assigns(:most_searched_zip_codes).pluck(:search_count)).to match_array([30, 25, 22, 15])
     end
   end
 

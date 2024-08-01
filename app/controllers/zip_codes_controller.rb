@@ -31,7 +31,6 @@ class ZipCodesController < ApplicationController
     log = ZipCodeLog.find_or_initialize_by(zip_code: @address_info[:cep], state: @address_info[:state], city: @address_info[:city], district: @address_info[:district])
     log.search_count = log.search_count + 1
     log.save!
-   
   end
 
   def most_searched_zip_codes
